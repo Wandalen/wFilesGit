@@ -3,5 +3,5 @@ let _ = require( 'wfilesgit' );
 
 /**/
 
-___
+console.log( '___ not implemented ___' );
 
