@@ -1470,6 +1470,4 @@ module:
       ../.im.will.yml:
         hash: 6e5fbe6143e08bce624b5eab74f601c1
         size: 4682
-      wFilesGit.out.will.yml:
-        hash: c74795643ee040c712aa0ab408cb10a4
-        size: 37261
+      wFilesGit.out.will.yml: *ref_0
