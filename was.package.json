@@ -1,12 +1,19 @@
 {
   "name" : "wfilesgit",
   "version" : "0.2.86",
-  "description" : "___",
+  "description" : "Implements file provider to access files over Git.",
   "author" : "Kostiantyn Wandalen <wanalen@01.school>",
+  "contributors" : [
+    "Kostiantyn Wandalen <wanalen@01.school>",
+    "Volodymyr M. <volodymyr.migdal@gmail.com>",
+    "Ihor O. <iostashvxi@gmail.com>",
+    "Pablo Garcimartin <pablogarcimartinruiz@gmail.com>",
+    "Dmytro Kryvoruchko <dm.vict.kr@gmail.com>"
+  ],
   "license" : "MIT",
   "main" : "proto/node_modules/wfilesgit",
-  "files" : [ "proto/wtools/___", "proto/node_modules" ],
-  "scripts" : { "test" : "wtest .run proto rapidity:-3", "docgen" : "wdocgen .build proto" },
+  "files" : [ "proto/wtools/amid/l4_files", "proto/node_modules", "proto/node_modules/Tools", "proto/node_modules/wfilesgit" ],
+  "scripts" : { "test" : "wtest .run \"proto/**\" rapidity:-3", "docgen" : "wdocgen .build proto" },
   "repository" :
   {
     "type" : "git",
@@ -16,7 +23,7 @@
   {
     "url" : "https://github.com/Wandalen/wFilesGit/issues"
   },
-  "dependencies" : { "wTools" : "" },
+  "dependencies" : { "wfilesbasic" : "", "wgittools" : "" },
   "devDependencies" : { "wTesting" : "", "eslint" : "7.1.0" },
-  "keywords" : [ "wTools" ]
+  "keywords" : [ "wTools", "wFiles", "file", "standardized abstract interface", "git" ]
 }
