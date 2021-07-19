@@ -2,37 +2,37 @@ format: outwillfile-2.0
 root:
   - wFilesGit.out
 consistency:
-  wFilesGit.out.will.yml: &ref_0
-    hash: c74795643ee040c712aa0ab408cb10a4
-    size: 37261
-  ../.ex.will.yml: &ref_1
-    hash: c3667b493aa305c0569cd8b8e4beff1e
-    size: 1667
-  ../.im.will.yml: &ref_2
-    hash: 6e5fbe6143e08bce624b5eab74f601c1
-    size: 4682
+  ../will.yml: &ref_0
+    hash: 71701014bc3faa53ed6fafb67a44efd3
+    size: 6649
 module:
   wFilesGit.out:
     about:
       name: wFilesGit
       org: noorg
-      description: ___
+      description: Implements file provider to access files over Git.
       enabled: 1
-      version: 0.4.0
-      interpreters:
+      version: 0.3.0
+      license: MIT
+      npm.name: wfilesgit
+      author: Kostiantyn Wandalen <wanalen@01.school>
+      keywords: &ref_1
+        - wTools
+        - wFiles
+        - file
+        - standardized abstract interface
+        - git
+      contributors: &ref_2
+        - Kostiantyn Wandalen <wanalen@01.school>
+        - Volodymyr M. <volodymyr.migdal@gmail.com>
+        - Ihor O. <iostashvxi@gmail.com>
+        - Dmytro Kryvoruchko <dm.vict.kr@gmail.com>
+      interpreters: &ref_3
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords:
-        - tools
-        - wTools
-      license: MIT
-      author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@01.school>
-      npm.name: wfilesgit
-      npm.scripts:
-        test: wtest .run proto/**
+      npm.scripts: &ref_4
+        test: 'wtest .run "proto/**" rapidity:-3'
         docgen: wdocgen .build proto
     path:
       module.willfiles:
@@ -46,15 +46,11 @@ module:
       module.original.willfiles:
         criterion:
           predefined: 1
-        path:
-          - ../.ex.will.yml
-          - ../.im.will.yml
+        path: ../will.yml
       module.peer.willfiles:
         criterion:
           predefined: 1
-        path:
-          - ../.ex.will.yml
-          - ../.im.will.yml
+        path: ../will.yml
       module.peer.in:
         criterion:
           predefined: 1
@@ -68,7 +64,7 @@ module:
       origins:
         path:
           - 'git+https:///github.com/Wandalen/wFilesGit.git'
-          - 'npm:///wFilesGit'
+          - 'npm:///wfilesgit'
       bugtracker:
         path: 'https:///github.com/Wandalen/wFilesGit/issues'
       in:
@@ -76,7 +72,11 @@ module:
       out:
         path: .
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - ../package-lock.json
+          - ../package.json
+          - ../node_modules
       proto:
         path: ../proto
       export:
@@ -110,23 +110,23 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: ../proto/wtools/___
+        path: ../proto/wtools/amid/l4_files/entry/Git.ss
       entry.proto.only.tests:
         criterion:
           tests: only.tests
-        path: ../proto/**/*.test.*
+        path: ../proto/**/*.test.s
       entry.out.raw.debug.debug:
         criterion:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/wtools/___'
+        path: '{path::out.*=1}/source/wtools/amid/l4_files/entry/Git.ss'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/wtools/___'
+        path: '{path::out.*=1}/source/wtools/amid/l4_files/entry/Git.ss'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -141,7 +141,7 @@ module:
         path: '{path::out.*=}/source/Index.s'
       npm.proto.entry:
         path:
-          - ../proto/node_modules/Tools
+          - ../proto/wtools/amid/l4_files/entry/Git.ss
           - ../proto/node_modules/wfilesgit
       exported.dir.proto.export:
         criterion:
@@ -161,12 +161,23 @@ module:
           - ../proto/node_modules/Tools
           - ../proto/node_modules/wfilesgit
           - ../proto/wtools
-          - ../proto/wtools/abase
           - ../proto/wtools/amid
-          - ../proto/wtools/atop
+          - ../proto/wtools/amid/l4_files
+          - ../proto/wtools/amid/l4_files/entry
+          - ../proto/wtools/amid/l4_files/entry/Git.ss
+          - ../proto/wtools/amid/l4_files/include
+          - ../proto/wtools/amid/l4_files/include/Git.ss
+          - ../proto/wtools/amid/l4_files/l7_provider
+          - ../proto/wtools/amid/l4_files/l7_provider/Git.ss
+          - ../proto/wtools/amid/l4_files.test
+          - ../proto/wtools/amid/l4_files.test/Git.test.ss
     submodule:
-      wTools:
-        path: 'npm:///wTools'
+      wfilesbasic:
+        path: 'npm:///wfilesbasic'
+        autoExporting: 0
+        enabled: 0
+      wgittools:
+        path: 'npm:///wgittools'
         autoExporting: 0
         enabled: 0
       eslint:
@@ -174,7 +185,13 @@ module:
         autoExporting: 0
         enabled: 0
         criterion:
-          debug: 1
+          development: 1
+      wTesting:
+        path: 'npm:///wTesting'
+        autoExporting: 0
+        enabled: 0
+        criterion:
+          development: 1
     reflector:
       reflect.proto.debug.raw:
         src:
@@ -314,7 +331,7 @@ module:
           prefixPath: ../proto
         mandatory: 1
         dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
+        linkingAction: hardLinkMaybe
         criterion:
           generated: 1
           content: proto
@@ -682,24 +699,6 @@ module:
           content: prime
         inherit:
           - files.transpile
-      exported.proto.export:
-        opts:
-          filePath: 'reflector::exported.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
-      exported.files.proto.export:
-        opts:
-          filePath: 'reflector::exported.files.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
     build:
       proto.export:
         steps:
@@ -776,7 +775,7 @@ module:
           - 'build::npm'
     exported:
       proto.export:
-        version: 0.4.0
+        version: 0.3.0
         recursive: 0
         withIntegrated: 2
         tar: 0
@@ -788,44 +787,30 @@ module:
           content: proto
           export: 1
     consistency:
-      wFilesGit.out.will.yml: *ref_0
-      ../.ex.will.yml: *ref_1
-      ../.im.will.yml: *ref_2
+      ../will.yml: *ref_0
   ../:
     about:
       name: wFilesGit
       org: noorg
-      description: ___
+      description: Implements file provider to access files over Git.
       enabled: 1
-      version: 0.4.0
-      interpreters:
-        - njs >= 10.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords:
-        - tools
-        - wTools
+      version: 0.3.0
       license: MIT
-      author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wfilesgit
-      npm.scripts:
-        test: wtest .run proto/**
-        docgen: wdocgen .build proto
+      author: Kostiantyn Wandalen <wanalen@01.school>
+      keywords: *ref_1
+      contributors: *ref_2
+      interpreters: *ref_3
+      npm.scripts: *ref_4
     path:
       module.willfiles:
         criterion:
           predefined: 1
-        path:
-          - .ex.will.yml
-          - .im.will.yml
+        path: will.yml
       module.original.willfiles:
         criterion:
           predefined: 1
-        path:
-          - .ex.will.yml
-          - .im.will.yml
+        path: will.yml
       module.peer.willfiles:
         criterion:
           predefined: 1
@@ -847,7 +832,7 @@ module:
       origins:
         path:
           - 'git+https:///github.com/Wandalen/wFilesGit.git'
-          - 'npm:///wFilesGit'
+          - 'npm:///wfilesgit'
       bugtracker:
         path: 'https:///github.com/Wandalen/wFilesGit/issues'
       in:
@@ -855,7 +840,11 @@ module:
       out:
         path: out
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - package-lock.json
+          - package.json
+          - node_modules
       proto:
         path: proto
       export:
@@ -889,23 +878,23 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: proto/wtools/___
+        path: proto/wtools/amid/l4_files/entry/Git.ss
       entry.proto.only.tests:
         criterion:
           tests: only.tests
-        path: proto/**/*.test.*
+        path: proto/**/*.test.s
       entry.out.raw.debug.debug:
         criterion:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/wtools/___'
+        path: '{path::out.*=1}/source/wtools/amid/l4_files/entry/Git.ss'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/wtools/___'
+        path: '{path::out.*=1}/source/wtools/amid/l4_files/entry/Git.ss'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -920,11 +909,15 @@ module:
         path: '{path::out.*=}/source/Index.s'
       npm.proto.entry:
         path:
-          - proto/node_modules/Tools
+          - proto/wtools/amid/l4_files/entry/Git.ss
           - proto/node_modules/wfilesgit
     submodule:
-      wTools:
-        path: 'npm:///wTools'
+      wfilesbasic:
+        path: 'npm:///wfilesbasic'
+        autoExporting: 0
+        enabled: 0
+      wgittools:
+        path: 'npm:///wgittools'
         autoExporting: 0
         enabled: 0
       eslint:
@@ -932,7 +925,13 @@ module:
         autoExporting: 0
         enabled: 0
         criterion:
-          debug: 1
+          development: 1
+      wTesting:
+        path: 'npm:///wTesting'
+        autoExporting: 0
+        enabled: 0
+        criterion:
+          development: 1
     reflector:
       reflect.proto.debug.raw:
         src:
@@ -1464,10 +1463,6 @@ module:
           - 'build::release'
           - 'build::npm'
     consistency:
-      ../.ex.will.yml:
-        hash: c3667b493aa305c0569cd8b8e4beff1e
-        size: 1667
-      ../.im.will.yml:
-        hash: 6e5fbe6143e08bce624b5eab74f601c1
-        size: 4682
-      wFilesGit.out.will.yml: *ref_0
+      ../will.yml:
+        hash: 71701014bc3faa53ed6fafb67a44efd3
+        size: 6649
