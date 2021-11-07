@@ -2024,7 +2024,7 @@ function filesReflectCheckOptionFetchingDefaults( test )
     {
       test.true( _.error.is( err ) );
       test.identical( arg, undefined );
-      var exp = `Attempts is exhausted, made 3 attempts`;
+      var exp = `Attempts exhausted, made 3 attempts`;
       test.identical( _.strCount( err.originalMessage, exp ), 1 );
       test.identical( _.strCount( err.originalMessage, `Could not resolve host` ), 1 );
       return null;
@@ -2051,7 +2051,7 @@ function filesReflectCheckOptionFetchingDefaults( test )
       test.ge( spent, 3500 )
       test.true( _.error.is( err ) );
       test.identical( arg, undefined );
-      var exp = `Attempts is exhausted, made 4 attempts`;
+      var exp = `Attempts exhausted, made 4 attempts`;
       test.identical( _.strCount( err.originalMessage, exp ), 1 );
       test.identical( _.strCount( err.originalMessage, `Could not resolve host` ), 1 );
       return null;
