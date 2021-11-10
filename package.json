@@ -1,6 +1,6 @@
 {
   "name": "wfilesgit",
-  "version": "0.2.105",
+  "version": "0.2.106",
   "description": "Implements file provider to access files over Git.",
   "author": "Kostiantyn Wandalen <wanalen@01.school>",
   "contributors": [
@@ -30,11 +30,11 @@
     "url": "https://github.com/Wandalen/wFilesGit/issues"
   },
   "dependencies": {
-    "wgittools": "delta",
-    "wfilesbasic": "delta"
+    "wgittools": "latest",
+    "wfilesbasic": "latest"
   },
   "devDependencies": {
-    "wTesting": "delta",
+    "wTesting": "latest",
     "eslint": "7.32.0"
   },
   "keywords": [
