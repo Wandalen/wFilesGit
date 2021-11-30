@@ -5,7 +5,7 @@ about:
   enabled: 1
   license: MIT
   npm.name: wfilesgit
-  author: Kostiantyn Wandalen <wanalen@01.school>
+  author: Kostiantyn Wandalen <wandalen@obox.systems>
   keywords:
     - wTools
     - wFiles
@@ -13,7 +13,7 @@ about:
     - standardized abstract interface
     - git
   contributors:
-    - Kostiantyn Wandalen <wanalen@01.school>
+    - Kostiantyn Wandalen <wandalen@obox.systems>
     - Volodymyr M. <volodymyr.migdal@gmail.com>
     - Ihor O. <iostashvxi@gmail.com>
     - Dmytro Kryvoruchko <dm.vict.kr@gmail.com>
