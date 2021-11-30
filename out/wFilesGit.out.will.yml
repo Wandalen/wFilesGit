@@ -3,8 +3,8 @@ root:
   - wFilesGit.out
 consistency:
   ../will.yml: &ref_0
-    hash: 37e04007851e5c2db752eddce6b1ddf5
-    size: 6510
+    hash: 3ba408b33a62706a15a0563bca56b456
+    size: 6518
 module:
   wFilesGit.out:
     about:
@@ -1446,5 +1446,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: 37e04007851e5c2db752eddce6b1ddf5
-        size: 6510
+        hash: 3ba408b33a62706a15a0563bca56b456
+        size: 6518
