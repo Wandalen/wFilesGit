@@ -1,6 +1,6 @@
 {
   "name": "wfilesgit",
-  "version": "0.2.121",
+  "version": "0.2.122",
   "description": "Implements file provider to access files over Git.",
   "author": "Kostiantyn Wandalen <wandalen@obox.systems>",
   "contributors": [
